@@ -5,8 +5,12 @@ import requests
 load_dotenv()
 def linkedin_scraper(linkedin_url, mock: bool = False):
 
+    global response
     if mock:
-        response = (requests.get(os.getenv("GIST_URL")))
+        if linkedin_url.lower() == "https://in.linkedin.com/in/nitin-ram-a9b1a91b2":
+            response = (requests.get(os.getenv("GIST_URL_NITIN")))
+        if linkedin_url.lower() == "https://in.linkedin.com/in/tanisha-barman-7b12471b8":
+            response = (requests.get(os.getenv("GIST_URL_TANISHA")))
     else:
         api_key = os.getenv("PROXYCURL_API_KEY")
         headers = {'Authorization': 'Bearer ' + api_key}
